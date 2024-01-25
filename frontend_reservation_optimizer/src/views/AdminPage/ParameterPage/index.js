@@ -21,11 +21,11 @@ const ParametersCreateContainer = () => {
 
   return (
     <>
-      {/* Código del componente ParametersList */}
+      {}
       <Button variant="contained" color="primary" onClick={handleOpenModal}>
         Create Parameter
       </Button>
-      {/* Modal para crear un nuevo usuario */}
+      {}
       <ParameterCreate open={openModal} onClose={handleCloseModal} onCreateParameter={handleCreateParameter} />
     </>
   );

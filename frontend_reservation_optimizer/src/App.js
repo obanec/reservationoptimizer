@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import LoginPage from './views/LoginPage'; 
+
 import Sidebar from './components/Sidebar';
+import LoginPage from './views/LoginPage'; 
 import UserPage from './views/AdminPage/UserPage'; 
 import ParameterPage from './views/AdminPage/ParameterPage'; 
+import MyMeetingsPage from './views/DashboardPage/MyMeetingsPage'; 
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -24,6 +26,7 @@ function App() {
         <Route path="/login" element={<LoginPage/>} />
         <Route path="/user" element={<UserPage/>} />
         <Route path="/parameter" element={<ParameterPage/>} />
+        <Route path="/meetings" element={<MyMeetingsPage/>} />
       </Routes>
   </div>
     
