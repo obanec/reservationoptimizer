@@ -78,12 +78,18 @@ const Sidebar = ({ open, onClose }) => {
   return (
     <Drawer
       className="sidebar"
+      variant="persistent"
+      ModalProps={{
+        keepMounted: true
+      }}
+      anchor='left'
       open={open}
       onClose={onClose}
       classes={{
         paper: 'sidebar-paper',
       }}
     >
+      <button onClick={onClose}>☰</button>
       <List className="sidebar-list">
         {renderMenuItems()}
       </List>
