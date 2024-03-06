@@ -8,7 +8,6 @@ const LoginForm = ({ handleSubmit }) => {
       <Typography variant="h4" align="center" style={{ marginBottom: '20px' }}>
         Login
       </Typography>
-      <form onSubmit={handleSubmit}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <Field name="username" component={TextField} fullWidth label="Username" variant="outlined" />
@@ -22,7 +21,6 @@ const LoginForm = ({ handleSubmit }) => {
             </Button>
           </Grid>
         </Grid>
-      </form>
     </Container>
   );
 };

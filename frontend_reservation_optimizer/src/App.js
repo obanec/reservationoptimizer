@@ -7,10 +7,10 @@ import UserPage from './views/AdminPage/UserPage';
 import ParameterPage from './views/AdminPage/ParameterPage'; 
 import MyMeetingsPage from './views/DashboardPage/MyMeetingsPage'; 
 import NewMeetingPage from './views/BookingPage/NewMeeting'; 
+import { useSelector } from 'react-redux';
 
 const drawerWidth = 119;
-const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })
-(({ theme, open }) => ({
+const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(({theme,open})=>({
   flexGrow: 1,
   padding: theme.spacing(2),
   transition: theme.transitions.create('margin', {
@@ -29,15 +29,13 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(true); 
+  const isLoggedIn = useSelector(state=>(state.auth.isLoggedIn))
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  const handleLogin = () => {
-    setIsLoggedIn(true);
-  };
+  
   return (
     <div>
           {isLoggedIn && <button onClick={toggleSidebar}>☰</button>}
