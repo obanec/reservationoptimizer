@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
 import { TextField, Button, Dialog, Box } from '@mui/material';
+import { useSelector } from 'react-redux';
 import './style.css';
 
-const CreateParameterModal = ({ open, onClose, onCreateParameter }) => {
-  const [newParameter, setNewParameter] = useState({ firstName: '', lastName: '', email: '', role: '' });
-
-  const handleCreateParameter = () => {
-    onCreateParameter(newParameter);
-    setNewParameter({ firstName: '', lastName: '', email: '', role: '' });
-  };
+const CreateParameterModal = ({ open, onClose, handleChange, handleCreateParameter }) => {
+  const newParameter = useSelector(state => state.param.form)
 
   return (
     <Dialog open={open} onClose={onClose} aria-labelledby="modal-title" aria-describedby="modal-description">
@@ -17,20 +13,23 @@ const CreateParameterModal = ({ open, onClose, onCreateParameter }) => {
         <TextField
           label="Name"
           variant="outlined"
+          name='name'
           value={newParameter.name}
-          onChange={(e) => setNewParameter({ ...newParameter, name: e.target.value })}
+          onChange={handleChange}
         />
         <TextField
           label="Value"
           variant="outlined"
+          name='paramValue'
           value={newParameter.paramValue}
-          onChange={(e) => setNewParameter({ ...newParameter, paramValue: e.target.value })}
+          onChange={handleChange}
         />
-          <TextField
+        <TextField
           label="Description"
           variant="outlined"
+          name='description'
           value={newParameter.description}
-          onChange={(e) => setNewParameter({ ...newParameter, description: e.target.value })}
+          onChange={handleChange}
         />
         <Button className='button' onClick={handleCreateParameter}>
           Crear

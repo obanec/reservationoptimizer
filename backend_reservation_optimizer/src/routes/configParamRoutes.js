@@ -3,7 +3,6 @@ const router = express.Router();
 const authMiddleware = require('./middleware/authMiddleware');
 const ConfigParam = require('../models/ConfigParam');
 
-
 router.post('/', authMiddleware, async (req, res) => {
   try {
     const configParam = new ConfigParam(req.body);
@@ -16,8 +15,13 @@ router.post('/', authMiddleware, async (req, res) => {
 
 router.get('/', authMiddleware, async (req, res) => {
   try {
-    const configParams = await ConfigParam.find();
-    res.json(configParams);
+    const query = {}
+        if (Object.keys(req.query).length){
+            Object.assign(query, req.query) 
+        }
+
+    const configParams =  await ConfigParam.find(query).lean().exec();
+    res.status(201).json({configParams});
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -35,7 +39,6 @@ router.get('/:id', authMiddleware, async (req, res) => {
   }
 });
 
-// Ruta para actualizar una configuración de parámetros por ID
 router.put('/:id', authMiddleware, async (req, res) => {
   try {
     const { key, value } = req.body;

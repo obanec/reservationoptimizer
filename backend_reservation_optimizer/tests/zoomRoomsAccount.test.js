@@ -8,7 +8,7 @@ describe('ZoomRoomsAccount API', () => {
         const res = await request(app)
             .post('/users/login')
             .send({
-                email: 'test5@example.com',
+                username: 'test5@example.com',
                 password: 'pass123'
             });
         token = res.body.token;

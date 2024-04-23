@@ -1,9 +1,6 @@
+const  apicall = async ({username, password}) =>{ 
 
-const  apicall = async (username, password) =>{ 
-  
-  console.log('username is::: ', username ,' psw: ', password);
-
-  const response = await fetch('/api/login', {
+  const response = await fetch('http://localhost:3001/users/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -13,6 +10,7 @@ const  apicall = async (username, password) =>{
 
     if (response.ok) {
       const user = await response.json();
+      window.localStorage.setItem('token', user.token)
       return user; 
     }
     const error = await response.text();

@@ -16,9 +16,9 @@ paths:
             schema:
               type: object
               properties:
-                email:
+                username:
                   type: string
-                  format: email
+                  format: username
                 password:
                   type: string
                   format: password
@@ -72,7 +72,14 @@ paths:
           description: User updated successfully
         '404':
           description: User not found
-
+  /sessions:
+    get:
+      summary: Get users session data
+      tags:
+        - Users
+      responses:
+        '200':
+          description: Users session data      
   # Meeting Endpoints
   /meetings:
     get:
@@ -189,15 +196,17 @@ paths:
           description: Configuration parameter updated successfully
         '404':
           description: Configuration parameter not found
-
 components:
   schemas:
     User:
       type: object
       properties:
-        email:
+        username:
           type: string
-          format: email
+        fistname:
+          type: string
+        lastname:
+          type: string
         passwordHash:
           type: string
         role:
