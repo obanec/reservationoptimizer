@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Typography, Box } from '@mui/material';
-// import "react-big-calendar/lib/css/react-big-calendar.css";
+import "react-big-calendar/lib/css/react-big-calendar.css";
 import { Calendar, globalizeLocalizer } from 'react-big-calendar'
 import globalize from 'globalize'
 import moment from 'moment'

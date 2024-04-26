@@ -23,7 +23,7 @@ const Sidebar = ({ open, onClose }) => {
     },
     Calendar: {
       'My meetings': '/meetings',
-      'New meeting': '/meetings/new' 
+      'New meeting': '/meetings/new'
     }
   };
 
@@ -41,7 +41,7 @@ const Sidebar = ({ open, onClose }) => {
     return Object.entries(pages).map(([pageName, path]) => (
       <div key={pageName}>
         <ListItem button className="menu-item">
-            <ListItemText primary={pageName}  />
+          <ListItemText primary={pageName} />
           {subItems[pageName] && (
             <IconButton
               className="sub-item-toggle"

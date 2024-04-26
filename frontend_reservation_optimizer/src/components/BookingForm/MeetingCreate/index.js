@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import './style.css';
 
 const CreateMeetingModal = ({ open, onClose, handleChange, handleCreateMeeting }) => {
-  const newMeeting = useSelector(state => state.param.form)
+  const newMeeting = useSelector(state => state.meeting.form)
 
   return (
     <Dialog open={open} onClose={onClose} aria-labelledby="modal-title" aria-describedby="modal-description">
@@ -76,7 +76,7 @@ const CreateMeetingModal = ({ open, onClose, handleChange, handleCreateMeeting }
           margin="normal"
         />
         <Button className='button' onClick={handleCreateMeeting}>
-          Crear
+          Create
         </Button>
       </Box>
     </Dialog>
