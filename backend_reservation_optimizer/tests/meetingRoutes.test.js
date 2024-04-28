@@ -50,7 +50,7 @@ describe('Meetings API', () => {
             .set('Authorization', `Bearer ${token}`)
             .send({
                 title: 'Updated Meeting',
-                // Otros campos actualizados
+               
             });
         expect(res.statusCode).toEqual(200);
         expect(res.body).toHaveProperty('title', 'Updated Meeting');

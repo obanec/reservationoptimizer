@@ -1,4 +1,3 @@
-// testUserModel.js
 const connectDB = require('../src/database');
 const User = require('../src/models/User');
 
