@@ -1,4 +1,3 @@
-# Usar una imagen base de Node.js
 FROM node:16 as build
 WORKDIR /usr/src/app
 COPY package*.json ./
