@@ -4,10 +4,10 @@ const  submitUser = async (_, store) =>{
     user: {form: state}     
   }  = store.getState() 
 
-  let route = 'http://backend:3001/users/register' ; 
+  let route = '/api/users/register' ; 
   let method = 'POST'
   if (state._id){ 
-    route =   'http://backend:3001/users/' + state._id ;
+    route =   '/api/users/' + state._id ;
     method = 'PUT'
   }
 
@@ -29,7 +29,7 @@ const  submitUser = async (_, store) =>{
 };
 
 const  fetchUser = async (filter, __, state) =>{ 
-  let route = 'http://backend:3001/users/' ; 
+  let route = '/api/users/' ; 
   let method = 'GET'
 
   const queryParams = new URLSearchParams(); 

@@ -8,7 +8,9 @@ RUN npm run build
 RUN ls /usr/src/app/build
 
 FROM nginx:alpine
-COPY --from=build /usr/src/app/build /usr/share/nginx/html
+#COPY --from=build /usr/src/app/build /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+RUN node server.js 
 
 RUN ls /usr/share/nginx/html
 

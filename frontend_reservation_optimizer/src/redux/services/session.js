@@ -1,7 +1,7 @@
 const  apicall = async () =>{
     const token = window.localStorage.getItem('token'); 
 
-    const response = await fetch('http://backend:3001/session', {
+    const response = await fetch('/api/session', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
