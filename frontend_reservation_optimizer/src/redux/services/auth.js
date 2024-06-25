@@ -1,6 +1,6 @@
 const  apicall = async ({username, password}) =>{ 
 
-  const response = await fetch('http://localhost:3001/users/login', {
+  const response = await fetch('http://backend:3001/users/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

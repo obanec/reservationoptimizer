@@ -2,10 +2,10 @@ const  submitParams = async (_, store) =>{
   const {
     param: {form: state}     
   }  = store.getState() 
-  let route = 'http://localhost:3001/configparam/' ; 
+  let route = 'http://backend:3001/configparam/' ; 
   let method = 'POST'
   if (state._id){ 
-    route =   'http://localhost:3001/configparam/' + state._id ;
+    route =   'http://backend:3001/configparam/' + state._id ;
     method = 'PUT'
   }
 
@@ -27,7 +27,7 @@ const  submitParams = async (_, store) =>{
 };
 
 const  fetchParams = async (filter, __, state) =>{ 
-  let route = 'http://localhost:3001/configparam/' ; 
+  let route = 'http://backend:3001/configparam/' ; 
   let method = 'GET'
 
   const queryParams = new URLSearchParams(); 

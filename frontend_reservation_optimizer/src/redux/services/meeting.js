@@ -4,10 +4,10 @@ const  submitMeeting = async (_, store) =>{
   const {
     meeting: {form: state}     
   }  = store.getState() 
-  let route = 'http://localhost:3001/meetings/' ; 
+  let route = 'http://backend:3001/meetings/' ; 
   let method = 'POST'
   if (state._id){ 
-    route =   'http://localhost:3001/meetings/' + state._id ;
+    route =   'http://backend:3001/meetings/' + state._id ;
     method = 'PUT'
   }
 
@@ -29,7 +29,7 @@ const  submitMeeting = async (_, store) =>{
 };
 
 const  fetchMeeting = async (filter, __, state) =>{ 
-  let route = 'http://localhost:3001/meetings/' ; 
+  let route = 'http://backend:3001/meetings/' ; 
   let method = 'GET'
 
   const queryParams = new URLSearchParams(); 
