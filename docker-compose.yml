@@ -4,7 +4,7 @@ services:
       context: ./frontend_reservation_optimizer
       dockerfile: Dockerfile
     ports:
-      - "80:80"
+      - "3000:3000"
     depends_on:
       - backend
     networks:
@@ -22,7 +22,18 @@ services:
       MONGO_URI: "mongodb://mongo:27017"
     networks:
       - reservation_net
-
+  
+  gateway:
+    build:
+      context: ./gateway
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - reservation_net
   mongo:
     image: mongodb/mongodb-community-server:7.0.0-ubi8
     ports:
