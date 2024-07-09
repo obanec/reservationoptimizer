@@ -13,8 +13,8 @@ const CreateParameterModal = ({ open, onClose, handleChange, handleCreateParamet
         <TextField
           label="Name"
           variant="outlined"
-          name='name'
-          value={newParameter.name}
+          name='paramName'
+          value={newParameter.paramName}
           onChange={handleChange}
         />
         <TextField
