@@ -4,6 +4,8 @@ COPY package*.json ./
 RUN npm install 
 COPY . .
 RUN npm run build
-RUN node server.js
+CMD ['node', 'server.js']
 
 EXPOSE 3000
+
+

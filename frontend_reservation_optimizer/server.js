@@ -12,7 +12,7 @@ const fetch = async (...props) => {
 };
 
 const handleRequest = async (req, res) => {
-    logger.info(`Request made to ${req.url}`);
+    console.log(`Request made to ${req.url}`);
     try {
         const url = `${API}${req.url.replace('/api', '')}`;
         const {body} = req;
